@@ -1,0 +1,28 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:annotation-config />
+
+	<context:component-scan base-package="com.libreria.libros.*"/>
+	
+	
+	<bean id="Libros" class="com.libreria.libros.LibrosSkeleton" />
+
+	<!-- <bean id="Prueba" class="com.libreria.libros.Prueba" /> -->
+	<context:property-placeholder
+		location="META-INF/application.properties" />
+	<bean id="npjt" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">  
+		<constructor-arg ref="dc"></constructor-arg>
+	</bean>
+	<bean id="dc" class="org.springframework.jdbc.datasource.DriverManagerDataSource" scope="singleton">
+		<property name="driverClassName" value="${db.driver}"></property>
+		<property name="url" value="${db.url}"></property>
+		<property name="username" value="${db.username}"></property>
+		<property name="password" value="${db.password}"></property>
+	</bean>
+</beans>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.7.9 Built on : Nov 16, 2018 (12:05:37 
+	GMT) -->
+<serviceGroup>
+	<service name="Libros">
+		<description>
+			ejemplo simple de spring
+		</description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/ns/wsdl/in-out"
+				class="com.libreria.libros.LibrosMessageReceiverInOut" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.libreria.libros.LibrosSkeleton
+		</parameter>
+		<parameter name="useOriginalwsdl">true</parameter>
+		<parameter name="modifyUserWSDLPortAddress">true</parameter>
+		<operation name="buscarLibro" mep="http://www.w3.org/ns/wsdl/in-out"
+			namespace="http://libreria.com/Libros/">
+			<actionMapping>http://libreria.com/Libros/buscarlibros
+			</actionMapping>
+			<outputActionMapping>http://libreria.com/Libros/librosPT/buscarLibroResponse
+			</outputActionMapping>
+		</operation>
+		<operation name="addLibro" mep="http://www.w3.org/ns/wsdl/in-out"
+			namespace="http://libreria.com/Libros/">
+			<actionMapping>http://libreria.com/Libros/addlibros</actionMapping>
+			<outputActionMapping>http://libreria.com/Libros/librosPT/addLibroResponse
+			</outputActionMapping>
+		</operation>
+		<parameter name="ServiceObjectSupplier">org.apache.axis2.extensions.spring.receivers.SpringAppContextAwareObjectSupplier
+		</parameter>
+		<parameter name="SpringContextLocation">META-INF/applicationContext.xml</parameter>
+		<parameter name="SpringBeanName">Libros</parameter>
+	</service>
+</serviceGroup>
